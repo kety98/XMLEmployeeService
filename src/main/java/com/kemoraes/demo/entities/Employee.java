@@ -3,11 +3,19 @@ package com.kemoraes.demo.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String name;
-	String Title;
+	String firstName;
+	String title;
 	
 	public Employee() {	
 	}
@@ -15,8 +23,8 @@ public class Employee implements Serializable{
 	public Employee(Long id, String name, String title) {
 		super();
 		this.id = id;
-		this.name = name;
-		Title = title;
+		this.firstName = name;
+		this.title = title;
 	}
 
 	public Long getId() {
@@ -28,19 +36,19 @@ public class Employee implements Serializable{
 	}
 
 	public String getName() {
-		return name;
+		return firstName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.firstName = name;
 	}
 
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 	@Override
