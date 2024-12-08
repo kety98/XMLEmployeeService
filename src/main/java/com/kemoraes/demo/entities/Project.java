@@ -60,7 +60,7 @@ public class Project implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(employees, projectId);
+		return Objects.hash(projectId, projectName);
 	}
 
 	@Override
@@ -72,7 +72,9 @@ public class Project implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Project other = (Project) obj;
-		return Objects.equals(employees, other.employees) && Objects.equals(projectId, other.projectId);
+		return Objects.equals(projectId, other.projectId) && Objects.equals(projectName, other.projectName);
 	}
+
+	
 	
 }
