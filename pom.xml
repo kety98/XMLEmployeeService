@@ -53,9 +53,8 @@
 		
 		<dependency>
 		    <groupId>com.microsoft.sqlserver</groupId>
-		    <artifactId>mssql-jdbc</artifactId>		    
-	</dependency>
-
+		    <artifactId>mssql-jdbc</artifactId>		    	    
+		</dependency>
 	</dependencies>
 
 	<build>
