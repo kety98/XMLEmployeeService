@@ -23,9 +23,4 @@ public class EmployeesWrapper {
 	    return employees;
 	}
 
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-    
 }

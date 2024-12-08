@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,20 +19,24 @@ public class Employee implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "EmployeeID")
-	Long id;
+	private Long id;
 	@Column(name = "FirstName")
-	String firstName;
+	private String firstName;
 	@Column(name = "Title")
-	String title;
+	private String title;
+	@ManyToOne
+	@JoinColumn(name = "project")
+	private Project project;
 	
 	public Employee() {	
 	}
 	
-	public Employee(Long id, String name, String title) {
+	public Employee(Long id, String name, String title, Project project) {
 		super();
 		this.id = id;
 		this.firstName = name;
 		this.title = title;
+		this.project = project;
 	}
 
 	public Long getId() {
@@ -55,6 +61,14 @@ public class Employee implements Serializable{
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	@Override
