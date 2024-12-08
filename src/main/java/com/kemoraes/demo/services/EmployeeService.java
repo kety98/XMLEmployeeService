@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kemoraes.demo.entities.Employee;
 import com.kemoraes.demo.repositories.EmployeeRepository;
+import com.kemoraes.demo.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class EmployeeService {
@@ -21,7 +22,7 @@ public class EmployeeService {
 	
 	public Employee findById(Long id) {
 		Optional<Employee> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 }
